@@ -45,6 +45,8 @@ public class GamePanel extends JPanel {
 
 		String wildthing = "lol.jpg";
 		JLabel iam = createImage(wildthing);
+	
+		iam.setBounds(130,50,350,350);
 		panel.add(iam);
 		frame.setVisible(true);
 
