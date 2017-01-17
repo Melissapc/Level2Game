@@ -18,10 +18,20 @@ public class GamePanel extends JPanel {
 	static JLabel currentImage;
 	JFrame frame;
 	JPanel panel;
+MultipleChoiceQuestion options;
+	// int (W) = WIDTH of frame
+	int W = 600;
+	// lowercase (w) is width of image being used //jpg
+	int w = 400;
+	// int (H) is HEIGHT of the frame
+	int H = 600;
+	// int (h) is the height of the image being used //jpg
+	int h = 258;
 
 	public static void main(String[] args) throws MalformedURLException {
 
 		GamePanel construct = new GamePanel();
+MultipleChoiceQuestion options = new MultipleChoiceQuestion("worried creatures", "where the wild things go","curious kid", "lol.jpg", 2);
 	}
 
 	GamePanel() throws MalformedURLException {
@@ -33,25 +43,30 @@ public class GamePanel extends JPanel {
 		panel.setLayout(null);
 		panel.setVisible(true);
 		frame.add(panel);
+
 		JButton answer1 = new JButton();
 		answer1.setBounds(100, 500, 100, 35);
 		JButton answer2 = new JButton();
 		answer2.setBounds(250, 500, 100, 35);
 		JButton answer3 = new JButton();
 		answer3.setBounds(400, 500, 100, 35);
+
 		panel.add(answer1);
 		panel.add(answer2);
 		panel.add(answer3);
+		answer1.setText(options.choice1);
+		answer2.setText(options.choice2);
+		answer3.setText(options.choice3);
 
 		String wildthing = "lol.jpg";
 		JLabel iam = createImage(wildthing);
-	
-		iam.setBounds(130,50,350,350);
+
+		iam.setBounds(((W - w) / 2), (H - h) / 3, 400, 258);
 		panel.add(iam);
 		frame.setVisible(true);
 
 		// new GridLayout();
-	
+
 	}
 
 	JLabel createImage(String fileName) throws MalformedURLException {
