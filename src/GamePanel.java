@@ -18,7 +18,10 @@ public class GamePanel extends JPanel {
 	static JLabel currentImage;
 	JFrame frame;
 	JPanel panel;
-MultipleChoiceQuestion options;
+	MultipleChoiceQuestion options;
+
+	JLabel text;
+	
 	// int (W) = WIDTH of frame
 	int W = 600;
 	// lowercase (w) is width of image being used //jpg
@@ -29,13 +32,12 @@ MultipleChoiceQuestion options;
 	int h = 258;
 
 	public static void main(String[] args) throws MalformedURLException {
-
 		GamePanel construct = new GamePanel();
-MultipleChoiceQuestion options = new MultipleChoiceQuestion("worried creatures", "where the wild things go","curious kid", "lol.jpg", 2);
 	}
 
 	GamePanel() throws MalformedURLException {
-
+MultipleChoiceQuestion options = new MultipleChoiceQuestion("worried creatures", "where the wild things go","curious kid", "lol.jpg", 2);
+		text= new JLabel("text");
 		frame = new JFrame();
 		panel = new JPanel();
 		frame.setTitle("How Well Do You Know Books?");
@@ -50,7 +52,6 @@ MultipleChoiceQuestion options = new MultipleChoiceQuestion("worried creatures",
 		answer2.setBounds(250, 500, 100, 35);
 		JButton answer3 = new JButton();
 		answer3.setBounds(400, 500, 100, 35);
-
 		panel.add(answer1);
 		panel.add(answer2);
 		panel.add(answer3);
@@ -65,7 +66,7 @@ MultipleChoiceQuestion options = new MultipleChoiceQuestion("worried creatures",
 		panel.add(iam);
 		frame.setVisible(true);
 
-		// new GridLayout();
+		
 
 	}
 
@@ -76,13 +77,5 @@ MultipleChoiceQuestion options = new MultipleChoiceQuestion("worried creatures",
 		return imageLabel;
 	}
 
-	// static BufferedImage createImage(String fileName) {
-	// BufferedImage bi;
-	// try {
-	// bi= ImageIO.read(this.getClass().getResourceAsStream(fileName));
-	// } catch (IOException e) {
-	// // TODO Auto-generated catch block
-	// e.printStackTrace();
-	// }
-	// return bi;
+	
 }
