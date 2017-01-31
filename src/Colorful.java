@@ -23,10 +23,11 @@ public class Colorful extends JPanel {
         colors = createColorList();
         random = new Random();
 
-        Timer timer = new Timer(10000, new ActionListener(){
+        Timer timer = new Timer(500, new ActionListener(){
             public void actionPerformed(ActionEvent e) {
                 int index = random.nextInt(colors.size());
                 bgColor = colors.get(index);
+              
                 repaint();
             }
         });
@@ -54,21 +55,5 @@ public class Colorful extends JPanel {
         g.fillRect(0, 0, getWidth(), getHeight());
     }
 
-   // @Override
-//    public Dimension getPreferredSize() {
-//        return new Dimension(D_W, D_H);
-//    }
 
-//    public static void main(String[] args) {
-//        SwingUtilities.invokeLater(new Runnable() {
-//            public void run() {
-//                JFrame frame = new JFrame();
-//                frame.add(new Colorful());
-//                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//                frame.pack();
-//                frame.setLocationRelativeTo(null);
-//                frame.setVisible(true);
-//            }
-//        });
-//    }
 }

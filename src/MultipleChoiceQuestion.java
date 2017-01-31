@@ -3,7 +3,7 @@ public class MultipleChoiceQuestion {
 	String choice2;
 	String choice3;
 	String image;
-	int answer;;
+	int answer;
 
 	//public static void main(String[] args) {
 //		MultipleChoiceQuestion options = new MultipleChoiceQuestion("worried creatures", "where the wild things go",
