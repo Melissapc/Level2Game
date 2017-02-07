@@ -18,12 +18,12 @@ public class Colorful extends JPanel {
     private final List<Color> colors;
     private final Random random;
     private Color bgColor = Color.BLUE;
-
+    Timer timer;
     public Colorful() {
         colors = createColorList();
         random = new Random();
 
-        Timer timer = new Timer(500, new ActionListener(){
+        timer = new Timer(500, new ActionListener(){
             public void actionPerformed(ActionEvent e) {
                 int index = random.nextInt(colors.size());
                 bgColor = colors.get(index);
