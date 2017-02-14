@@ -3,21 +3,9 @@ public class MultipleChoiceQuestion {
 	String choice2;
 	String choice3;
 	String image;
-	int answer;
+	String answer;
 
-	//public static void main(String[] args) {
-//		MultipleChoiceQuestion options = new MultipleChoiceQuestion("worried creatures", "where the wild things go",
-//			"curious kid", "lol.jpg", 2);
-//		
-//	if(options.checkAnswer(50)){
-//			System.out.println("yeahh");
-//		
-//	}else 
-//		System.out.println("nope");
-//		
-//	}
-
-	MultipleChoiceQuestion(String choice1, String choice2, String choice3, String pic, int answer) {
+	MultipleChoiceQuestion(String choice1, String choice2, String choice3, String image, String answer) {
 		this.choice1 = choice1;
 		this.choice2 = choice2;
 		this.choice3 = choice3;
@@ -26,10 +14,14 @@ public class MultipleChoiceQuestion {
 
 	}
 
-	boolean checkAnswer(int playerAnswer) {
-		if (answer == playerAnswer) {
+	boolean checkAnswer(String playerAnswer) {
+		if (answer.equals(playerAnswer)) {
 			return true;
 		}
 		return false;
+	}
+
+public String getAnswer() {
+		return answer;
 	}
 }

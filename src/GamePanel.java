@@ -27,8 +27,9 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	JButton answer1;
 	JButton answer2;
 	JButton answer3;
-	JLabel iam;
+	JLabel imagelabel;
 	String hoverButton = "";
+	MultipleChoiceQuestion question;
 	// int (W) = WIDTH of frame
 	int W = 600;
 	// lowercase (w) is width of image being used //jpg
@@ -43,8 +44,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	}
 
 	GamePanel() throws MalformedURLException {
-		MultipleChoiceQuestion options = new MultipleChoiceQuestion("friends", "how i met ur mother", "crazy people",
-				"lolii.jpg", 2);
+		addnewQuestion();
 		text = new JLabel("text");
 		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -62,7 +62,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		answer1.addActionListener(this);
 		answer1.setBounds(100, 500, 100, 35);
 		if (hoverButton.equals("first")) {
-			// add a jlabel to the screen to show a popup for the full sentece !
+
 		}
 
 		// second button
@@ -79,17 +79,18 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		answer3.setBounds(400, 500, 100, 35);
 		answer3.addActionListener(this);
 
+		// adds buttons
 		panel.add(answer1);
 		panel.add(answer2);
 		panel.add(answer3);
-		answer1.setText(options.choice1);
-		answer2.setText(options.choice2);
-		answer3.setText(options.choice3);
+		answer1.setText(question.choice1);
+		answer2.setText(question.choice2);
+		answer3.setText(question.choice3);
 
-		String wildthing = "lolii.jpg";
-		iam = createImage(wildthing);
-		iam.setBounds(((W - w) / 2), (H - h) / 3, 400, 258);
-		panel.add(iam);
+		String wildthing = question.image;
+		imagelabel = createImage(wildthing);
+		imagelabel.setBounds(((W - w) / 2), (H - h) / 3, 400, 258);
+		panel.add(imagelabel);
 		frame.setVisible(true);
 
 	}
@@ -101,25 +102,32 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		return imageLabel;
 	}
 
-	@Override
+
+
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+		String name = (e.getComponent().getName());
+
+		if (name.equals(question.answer)) {
+			panel.remove(imagelabel);
+			frame.validate();
+			frame.repaint();
+		}
 
 	}
 
-	@Override
+
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
+	
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
+	
 	public void mouseEntered(MouseEvent e) {
 
 		hoverButton = e.getComponent().getName();
@@ -136,7 +144,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		}
 	}
 
-	@Override
+	
 	public void mouseExited(MouseEvent e) {
 
 		hoverButton = "";
@@ -144,23 +152,11 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	}
 
 	void addnewQuestion() {
-
+		question = new MultipleChoiceQuestion("Friends", "How I Met your Mother", "crazy people", "lolii.jpg",
+				"second button");
 	}
 
-	@Override
+
 	public void actionPerformed(ActionEvent e) {
-
-		if (e.getSource() == answer1) {
-			panel.remove(iam);
-			frame.validate();
-
-			frame.repaint();
-		}
-		if (e.getSource() == answer2) {
-
-		}
-		if (e.getSource() == answer3) {
-
-		}
 	}
 }
