@@ -28,7 +28,8 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	JButton answer2;
 	JButton answer3;
 	JLabel imagelabel;
-	String hoverButton = "";
+	String hoverButton = "";	
+	QuestionArray questions;
 	MultipleChoiceQuestion question;
 	// int (W) = WIDTH of frame
 	int W = 600;
@@ -44,6 +45,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	}
 
 	GamePanel() throws MalformedURLException {
+		questions=new QuestionArray();
 		addnewQuestion();
 		text = new JLabel("text");
 		frame = new JFrame();
@@ -102,32 +104,20 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		return imageLabel;
 	}
 
-
-
 	public void mouseClicked(MouseEvent e) {
 		String name = (e.getComponent().getName());
 
 		if (name.equals(question.answer)) {
 			panel.remove(imagelabel);
+			 addnewQuestion();
 			frame.validate();
 			frame.repaint();
+			
+
 		}
 
 	}
 
-
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	
 	public void mouseEntered(MouseEvent e) {
 
 		hoverButton = e.getComponent().getName();
@@ -144,7 +134,6 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		}
 	}
 
-	
 	public void mouseExited(MouseEvent e) {
 
 		hoverButton = "";
@@ -152,11 +141,21 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	}
 
 	void addnewQuestion() {
-		question = new MultipleChoiceQuestion("Friends", "How I Met your Mother", "crazy people", "lolii.jpg",
-				"second button");
+		question = questions.getNewQuestion();
 	}
 
-
 	public void actionPerformed(ActionEvent e) {
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

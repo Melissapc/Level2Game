@@ -1,3 +1,5 @@
+import java.awt.Graphics;
+
 public class MultipleChoiceQuestion {
 	String choice1;
 	String choice2;
@@ -24,4 +26,14 @@ public class MultipleChoiceQuestion {
 public String getAnswer() {
 		return answer;
 	}
+
+public void update() {
+	
+	
+}
+
+public void draw(Graphics g) {
+	// TODO Auto-generated method stub
+	
+}
 }
