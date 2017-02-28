@@ -1,4 +1,3 @@
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -28,7 +27,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	JButton answer2;
 	JButton answer3;
 	JLabel imagelabel;
-	String hoverButton = "";	
+	String hoverButton = "";
 	QuestionArray questions;
 	MultipleChoiceQuestion question;
 	// int (W) = WIDTH of frame
@@ -42,16 +41,23 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 
 	public static void main(String[] args) throws MalformedURLException {
 		GamePanel construct = new GamePanel();
+
 	}
 
 	GamePanel() throws MalformedURLException {
-		questions=new QuestionArray();
-		addnewQuestion();
+		questions = new QuestionArray();
+		getNewQuestion();
+		panelRemake();
+
+	}
+
+	private void panelRemake() {
+
 		text = new JLabel("text");
 		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		panel = new Colorful();
-		frame.setTitle("what Movie/Show is this image?");
+		frame.setTitle("Name this Image?");
 		frame.setSize(600, 600);
 		panel.setLayout(null);
 		panel.setVisible(true);
@@ -85,34 +91,39 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		panel.add(answer1);
 		panel.add(answer2);
 		panel.add(answer3);
+
 		answer1.setText(question.choice1);
 		answer2.setText(question.choice2);
 		answer3.setText(question.choice3);
 
-		String wildthing = question.image;
-		imagelabel = createImage(wildthing);
+		String image = question.image;
+		imagelabel = createImage(image);
 		imagelabel.setBounds(((W - w) / 2), (H - h) / 3, 400, 258);
 		panel.add(imagelabel);
 		frame.setVisible(true);
 
 	}
 
-	JLabel createImage(String fileName) throws MalformedURLException {
-		URL imageURL = getClass().getResource(fileName);
-		Icon icon = new ImageIcon(imageURL);
-		JLabel imageLabel = new JLabel(icon);
-		return imageLabel;
+	private JLabel createImage(String fileName) {
+		try {
+			URL imageURL = getClass().getResource(fileName);
+			Icon icon = new ImageIcon(imageURL);
+			JLabel imageLabel = new JLabel(icon);
+			return imageLabel;
+		} catch (Exception e) {
+		}
+		return null;
 	}
 
 	public void mouseClicked(MouseEvent e) {
 		String name = (e.getComponent().getName());
 
 		if (name.equals(question.answer)) {
-			panel.remove(imagelabel);
-			 addnewQuestion();
+			panel.removeAll();
+			getNewQuestion();
+			panelRemake();
 			frame.validate();
 			frame.repaint();
-			
 
 		}
 
@@ -140,7 +151,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 
 	}
 
-	void addnewQuestion() {
+	void getNewQuestion() {
 		question = questions.getNewQuestion();
 	}
 
@@ -150,12 +161,12 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

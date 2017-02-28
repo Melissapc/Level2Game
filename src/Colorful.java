@@ -45,6 +45,7 @@ public class Colorful extends JPanel {
         list.add(Color.YELLOW);
         list.add(Color.RED);
         list.add(Color.GRAY);
+        list.add(Color.WHITE);
         return list;
     }
 

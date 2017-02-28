@@ -12,21 +12,29 @@ public class QuestionArray {
 
 	public QuestionArray() {
 		questions = new ArrayList<MultipleChoiceQuestion>();
-		
-		//deeeee
-		
 
 		questions.add(new MultipleChoiceQuestion("Crazy Man", "New Man in New York",
-				"Fantastic beasts & where to find them", "AAHHA.jpg", "third button"));
-		
-		questions.add(new MultipleChoiceQuestion("psych girl", "The Simpsons", "gurll", "lizz.jpg", "second button"));
+				"<html> Fantastic beasts <br> and  where to <br> find them</html>", "AAHHA.jpg", "third button"));
 
 		questions.add(new MultipleChoiceQuestion("kids Best Friend", "A Dog's Purpose", "A Puppers Purpose",
 				"awwww.jpg", "second button"));
-	}
 
-	public void addQuestion(MultipleChoiceQuestion o) {
-		questions.add(o);
+		questions.add(new MultipleChoiceQuestion("psych girl", "The Simpsons", "gurll", "lizz.jpg", "second button"));
+
+		questions.add(new MultipleChoiceQuestion("Another Night, Another Drink", "Friends", "How I met your Mother",
+				"lolii.jpg", "third button"));
+
+		questions.add(new MultipleChoiceQuestion("Another night, Another Beer", "Friends", "How I met your Mother",
+				"lolii.jpg", "third button"));
+
+		questions.add(new MultipleChoiceQuestion("Live by Night", "Shark Tank", "Are You Ready", "sharkkta.jpg",
+				"second button"));
+
+		questions.add(new MultipleChoiceQuestion("SuperNatural", "Arrow", "Criminal minds", "sn.jpg", "first button"));
+
+		questions.add(
+				new MultipleChoiceQuestion("Sneeky Peeps", "Keep the Code", "The Office", "tbb.jpg", "third button"));
+
 	}
 
 	public MultipleChoiceQuestion getNewQuestion() {
