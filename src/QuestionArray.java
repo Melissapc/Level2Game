@@ -1,14 +1,16 @@
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 
 public class QuestionArray {
 
 	ArrayList<MultipleChoiceQuestion> questions;
 
+	// keeps track
+	Iterator<MultipleChoiceQuestion> questionIterator;
+
 	private int score = 0;
-	int current = 0;
-	int max = 10;
 
 	public QuestionArray() {
 		questions = new ArrayList<MultipleChoiceQuestion>();
@@ -34,14 +36,23 @@ public class QuestionArray {
 
 		questions.add(
 				new MultipleChoiceQuestion("Sneeky Peeps", "Keep the Code", "The Office", "tbb.jpg", "third button"));
-
+		questionIterator = questions.iterator();
+		System.out.println("question  list" + questions.size());
 	}
 
 	public MultipleChoiceQuestion getNewQuestion() {
-		int next = current;
-		current++;
+		try {
+			if (questionIterator.hasNext()) {
+				System.out.println("hasNext");
 
-		return questions.get(next);
+				return questionIterator.next();
+
+			}
+		} catch (Exception e) {
+			return null;
+
+		}
+		return null;
 
 	}
 

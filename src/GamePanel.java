@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class GamePanel extends JPanel implements MouseListener, ActionListener {
@@ -47,7 +48,11 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	GamePanel() throws MalformedURLException {
 		questions = new QuestionArray();
 		getNewQuestion();
-		panelRemake();
+		if (question == null) {
+			JOptionPane.showMessageDialog(null, "game over");
+		} else {
+			panelRemake();
+		}
 
 	}
 
@@ -72,7 +77,6 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		if (hoverButton.equals("first")) {
 
 		}
-
 		// second button
 		answer2 = new JButton();
 		answer2.setName("second button");
@@ -95,11 +99,15 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		answer1.setText(question.choice1);
 		answer2.setText(question.choice2);
 		answer3.setText(question.choice3);
+		if (question == null) {
 
-		String image = question.image;
-		imagelabel = createImage(image);
-		imagelabel.setBounds(((W - w) / 2), (H - h) / 3, 400, 258);
-		panel.add(imagelabel);
+		} else {
+			String image = question.image;
+			imagelabel = createImage(image);
+			imagelabel.setBounds(((W - w) / 2), (H - h) / 3, 400, 258);
+			panel.add(imagelabel);
+		}
+
 		frame.setVisible(true);
 
 	}
@@ -121,10 +129,13 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		if (name.equals(question.answer)) {
 			panel.removeAll();
 			getNewQuestion();
-			panelRemake();
-			frame.validate();
-			frame.repaint();
-
+			if (question == null) {
+				JOptionPane.showMessageDialog(null, "Game Over");
+			} else {
+				panelRemake();
+				frame.validate();
+				frame.repaint();
+			}
 		}
 
 	}
@@ -153,6 +164,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 
 	void getNewQuestion() {
 		question = questions.getNewQuestion();
+
 	}
 
 	public void actionPerformed(ActionEvent e) {
