@@ -40,12 +40,8 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	// int (h) is the height of the image being used //jpg
 	int h = 258;
 
-	public static void main(String[] args) throws MalformedURLException {
-		GamePanel construct = new GamePanel();
-
-	}
-
-	GamePanel() throws MalformedURLException {
+	GamePanel(JFrame frame) throws MalformedURLException {
+		this.frame = frame;
 		questions = new QuestionArray();
 		getNewQuestion();
 		if (question == null) {
@@ -59,11 +55,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	private void panelRemake() {
 
 		text = new JLabel("text");
-		frame = new JFrame();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		panel = new Colorful();
-		frame.setTitle("Name this Image?");
-		frame.setSize(600, 600);
 		panel.setLayout(null);
 		panel.setVisible(true);
 		frame.add(panel);
@@ -104,11 +96,14 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		} else {
 			String image = question.image;
 			imagelabel = createImage(image);
-			imagelabel.setBounds(((W - w) / 2), (H - h) / 3, 400, 258);
-			panel.add(imagelabel);
+			if (imagelabel != null) {
+				imagelabel.setBounds(((W - w) / 2), (H - h) / 3, 400, 258);
+				panel.add(imagelabel);
+			}
+
 		}
 
-		frame.setVisible(true);
+		panel.setVisible(true);
 
 	}
 
@@ -119,6 +114,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 			JLabel imageLabel = new JLabel(icon);
 			return imageLabel;
 		} catch (Exception e) {
+
 		}
 		return null;
 	}

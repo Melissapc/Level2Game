@@ -19,14 +19,11 @@ public class QuestionArray {
 				"<html> Fantastic beasts <br> and  where to <br> find them</html>", "AAHHA.jpg", "third button"));
 
 		questions.add(new MultipleChoiceQuestion("kids Best Friend", "A Dog's Purpose", "A Puppers Purpose",
-				"awwww.jpg", "second button"));
+				"pupper.jpg", "second button"));
 
-		questions.add(new MultipleChoiceQuestion("psych girl", "The Simpsons", "gurll", "lizz.jpg", "second button"));
+		questions.add(new MultipleChoiceQuestion("psych girl", "The Simpsons", "gurll", "lizz.png", "second button"));
 
 		questions.add(new MultipleChoiceQuestion("Another Night, Another Drink", "Friends", "How I met your Mother",
-				"lolii.jpg", "third button"));
-
-		questions.add(new MultipleChoiceQuestion("Another night, Another Beer", "Friends", "How I met your Mother",
 				"lolii.jpg", "third button"));
 
 		questions.add(new MultipleChoiceQuestion("Live by Night", "Shark Tank", "Are You Ready", "sharkkta.jpg",
@@ -36,6 +33,15 @@ public class QuestionArray {
 
 		questions.add(
 				new MultipleChoiceQuestion("Sneeky Peeps", "Keep the Code", "The Office", "tbb.jpg", "third button"));
+
+		questions.add(new MultipleChoiceQuestion("Friends", "The Breakfast Club", "buds and gals", "sn.jpg",
+				"second button"));
+
+		
+		
+		
+		
+		
 		questionIterator = questions.iterator();
 		System.out.println("question  list" + questions.size());
 	}
