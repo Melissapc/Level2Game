@@ -49,11 +49,9 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		} else {
 			panelRemake();
 		}
-
 	}
 
 	private void panelRemake() {
-
 		text = new JLabel("text");
 		panel = new Colorful();
 		panel.setLayout(null);
@@ -96,6 +94,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		} else {
 			String image = question.image;
 			imagelabel = createImage(image);
+			System.out.println(image);
 			if (imagelabel != null) {
 				imagelabel.setBounds(((W - w) / 2), (H - h) / 3, 400, 258);
 				panel.add(imagelabel);
@@ -125,6 +124,8 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		if (name.equals(question.answer)) {
 			panel.removeAll();
 			getNewQuestion();
+
+		
 			if (question == null) {
 				JOptionPane.showMessageDialog(null, "Game Over");
 			} else {

@@ -31,16 +31,11 @@ public class QuestionArray {
 
 		questions.add(new MultipleChoiceQuestion("SuperNatural", "Arrow", "Criminal minds", "sn.jpg", "first button"));
 
-		questions.add(
-				new MultipleChoiceQuestion("Sneeky Peeps", "Keep the Code", "The Office", "tbb.jpg", "third button"));
+		questions.add(new MultipleChoiceQuestion("Sneeky Peeps", "Keep the Code", "The Office", "tbb.jpg", "third button"));
 
 		questions.add(new MultipleChoiceQuestion("Friends", "The Breakfast Club", "buds and gals", "sn.jpg",
 				"second button"));
 
-		
-		
-		
-		
 		
 		questionIterator = questions.iterator();
 		System.out.println("question  list" + questions.size());

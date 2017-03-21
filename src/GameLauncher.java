@@ -10,13 +10,14 @@ public class GameLauncher {
 		start.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		start.frame.setTitle("Match the Pic with the Title!?");
 		start.frame.setSize(600, 600);
+		start.frame.setVisible(true);
 
 		try {
 			GamePanel panel = new GamePanel(start.frame);
 			
 			start.frame.add(panel);
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}

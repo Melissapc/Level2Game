@@ -13,48 +13,48 @@ import javax.swing.Timer;
 
 public class Colorful extends JPanel {
 
+	private final List<Color> colors;
+	private final Random random;
+	private Color bgColor = Color.BLUE;
+	Timer timer;
 
+	public Colorful() {
+		colors = createColorList();
+		random = new Random();
 
-    private final List<Color> colors;
-    private final Random random;
-    private Color bgColor = Color.BLUE;
-    Timer timer;
-    public Colorful() {
-        colors = createColorList();
-        random = new Random();
+		timer = new Timer(1000, new ActionListener() {
 
-        timer = new Timer(500, new ActionListener(){
-            public void actionPerformed(ActionEvent e) {
-                int index = random.nextInt(colors.size());
-                bgColor = colors.get(index);
-              
-                repaint();
-            }
-        });
-        timer.start();
-    }
+			public void actionPerformed(ActionEvent e) {
+				int index = random.nextInt(colors.size());
+				bgColor = colors.get(index);
 
-    private List<Color> createColorList() {
-        List<Color> list = new ArrayList<>();
-        list.add(Color.BLUE);
-        list.add(Color.CYAN);
-        list.add(Color.PINK);
-        list.add(Color.ORANGE);
-        list.add(Color.MAGENTA);
-        list.add(Color.GREEN);
-        list.add(Color.YELLOW);
-        list.add(Color.RED);
-        list.add(Color.GRAY);
-        list.add(Color.WHITE);
-        return list;
-    }
+				repaint();
+			}
+		});
+		timer.start();
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        g.setColor(bgColor);
-        g.fillRect(0, 0, getWidth(), getHeight());
-    }
+	}
 
+	private List<Color> createColorList() {
+		List<Color> list = new ArrayList<>();
+		list.add(Color.BLUE);
+		list.add(Color.CYAN);
+		list.add(Color.PINK);
+		list.add(Color.ORANGE);
+		list.add(Color.MAGENTA);
+		list.add(Color.GREEN);
+		list.add(Color.YELLOW);
+		list.add(Color.RED);
+		list.add(Color.GRAY);
+		list.add(Color.WHITE);
+		return list;
+	}
+
+	@Override
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.setColor(bgColor);
+		g.fillRect(0, 0, getWidth(), getHeight());
+	}
 
 }
