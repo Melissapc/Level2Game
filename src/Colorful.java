@@ -31,7 +31,7 @@ public class Colorful extends JPanel {
 				repaint();
 			}
 		});
-		timer.start();
+//		timer.start();
 
 	}
 

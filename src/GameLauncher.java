@@ -8,7 +8,7 @@ public class GameLauncher {
 	public static void main(String[] args) {
 		GameLauncher start = new GameLauncher();
 		start.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		start.frame.setTitle("Match the Pic with the Title!?");
+		start.frame.setTitle("MATCHEr GAMe");
 		start.frame.setSize(600, 600);
 		start.frame.setVisible(true);
 

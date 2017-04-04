@@ -53,10 +53,13 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 
 	private void panelRemake() {
 		text = new JLabel("text");
-		panel = new Colorful();
-		panel.setLayout(null);
-		panel.setVisible(true);
-		frame.add(panel);
+		setLayout(null);
+		setVisible(true);
+		/*
+		 * panel = new Colorful(); panel.setLayout(null);
+		 * panel.setVisible(true);
+		 */
+		frame.add(this);
 
 		// first button
 		answer1 = new JButton();
@@ -82,9 +85,12 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		answer3.addActionListener(this);
 
 		// adds buttons
-		panel.add(answer1);
-		panel.add(answer2);
-		panel.add(answer3);
+		add(answer1);
+		add(answer2);
+		add(answer3);
+		/*
+		 * panel.add(answer1); panel.add(answer2); panel.add(answer3);
+		 */
 
 		answer1.setText(question.choice1);
 		answer2.setText(question.choice2);
@@ -97,12 +103,14 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 			System.out.println(image);
 			if (imagelabel != null) {
 				imagelabel.setBounds(((W - w) / 2), (H - h) / 3, 400, 258);
-				panel.add(imagelabel);
+				add(imagelabel);
+
+				// panel.add(imagelabel);
 			}
 
 		}
-
-		panel.setVisible(true);
+		setVisible(true);
+		// panel.setVisible(true);
 
 	}
 
@@ -120,21 +128,23 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 
 	public void mouseClicked(MouseEvent e) {
 		String name = (e.getComponent().getName());
+		if (name != null) {
 
-		if (name.equals(question.answer)) {
-			panel.removeAll();
-			getNewQuestion();
+			if (name.equals(question.answer)) {
+				removeAll();
+				//panel.removeAll();
+				getNewQuestion();
 
-		
-			if (question == null) {
-				JOptionPane.showMessageDialog(null, "Game Over");
-			} else {
-				panelRemake();
-				frame.validate();
-				frame.repaint();
+				if (question == null) {
+					JOptionPane.showMessageDialog(null, "Game Over");
+				} else {
+
+					// panelRemake();
+					frame.validate();
+					frame.repaint();
+				}
 			}
 		}
-
 	}
 
 	public void mouseEntered(MouseEvent e) {
@@ -165,6 +175,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+
 	}
 
 	@Override
