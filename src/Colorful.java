@@ -19,10 +19,11 @@ public class Colorful extends JPanel {
 	Timer timer;
 
 	public Colorful() {
+	
 		colors = createColorList();
 		random = new Random();
 
-		timer = new Timer(1000, new ActionListener() {
+		timer = new Timer(5000, new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
 				int index = random.nextInt(colors.size());
@@ -31,7 +32,7 @@ public class Colorful extends JPanel {
 				repaint();
 			}
 		});
-//		timer.start();
+	timer.start();
 
 	}
 

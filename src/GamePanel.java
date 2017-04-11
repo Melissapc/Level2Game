@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,6 +10,10 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -21,7 +26,6 @@ import javax.swing.JPanel;
 public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	static JLabel currentImage;
 	JFrame frame;
-	JPanel panel;
 	MultipleChoiceQuestion options;
 	JLabel text;
 	JButton answer1;
@@ -31,6 +35,9 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	String hoverButton = "";
 	QuestionArray questions;
 	MultipleChoiceQuestion question;
+	private final List<Color> colors;
+	private final Random random;
+	private Color bgColor = Color.BLUE;
 	// int (W) = WIDTH of frame
 	int W = 600;
 	// lowercase (w) is width of image being used //jpg
@@ -41,7 +48,11 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	int h = 258;
 
 	GamePanel(JFrame frame) throws MalformedURLException {
-		this.frame = frame;
+		
+		 this.frame = frame;
+		// frame.add(this);
+		colors = createColorList();
+		random = new Random();
 		questions = new QuestionArray();
 		getNewQuestion();
 		if (question == null) {
@@ -49,16 +60,35 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		} else {
 			panelRemake();
 		}
+		
 	}
-
+	private List<Color> createColorList() {
+		List<Color> list = new ArrayList<>();
+		list.add(Color.BLUE);
+		list.add(Color.CYAN);
+		list.add(Color.PINK);
+		list.add(Color.ORANGE);
+		list.add(Color.MAGENTA);
+		list.add(Color.GREEN);
+		list.add(Color.YELLOW);
+		list.add(Color.RED);
+		list.add(Color.GRAY);
+		list.add(Color.WHITE);
+		return list;
+	}
+	
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.setColor(bgColor);
+		g.fillRect(0, 0, getWidth(), getHeight());
+	}
+	
+	
 	private void panelRemake() {
 		text = new JLabel("text");
+	//	panel = new Colorful();
 		setLayout(null);
 		setVisible(true);
-		/*
-		 * panel = new Colorful(); panel.setLayout(null);
-		 * panel.setVisible(true);
-		 */
 		frame.add(this);
 
 		// first button
@@ -85,12 +115,10 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		answer3.addActionListener(this);
 
 		// adds buttons
+
 		add(answer1);
-		add(answer2);
-		add(answer3);
-		/*
-		 * panel.add(answer1); panel.add(answer2); panel.add(answer3);
-		 */
+	add(answer2);
+	add(answer3);
 
 		answer1.setText(question.choice1);
 		answer2.setText(question.choice2);
@@ -103,14 +131,13 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 			System.out.println(image);
 			if (imagelabel != null) {
 				imagelabel.setBounds(((W - w) / 2), (H - h) / 3, 400, 258);
-				add(imagelabel);
 
-				// panel.add(imagelabel);
+				add(imagelabel);
+				System.out.println("image label");
 			}
 
 		}
 		setVisible(true);
-		// panel.setVisible(true);
 
 	}
 
@@ -132,14 +159,13 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 
 			if (name.equals(question.answer)) {
 				removeAll();
-				//panel.removeAll();
 				getNewQuestion();
 
 				if (question == null) {
 					JOptionPane.showMessageDialog(null, "Game Over");
 				} else {
 
-					// panelRemake();
+					panelRemake();
 					frame.validate();
 					frame.repaint();
 				}
@@ -175,7 +201,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-
+System.out.println("game panel action");
 	}
 
 	@Override
