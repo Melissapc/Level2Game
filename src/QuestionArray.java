@@ -23,22 +23,29 @@ public class QuestionArray {
 
 		questions.add(new MultipleChoiceQuestion("psych girl", "The Simpsons", "gurll", "lizz.png", "second button"));
 
-		questions.add(new MultipleChoiceQuestion("Another Night, Another Drink", "Friends", "How I met your Mother",
-				"lolii.jpg", "third button"));
+		questions.add(new MultipleChoiceQuestion("new Night old Drink", "Friends", "How I met your Mother", "lolii.jpg",
+				"third button"));
 
 		questions.add(new MultipleChoiceQuestion("Live by Night", "Shark Tank", "Are You Ready", "sharkkta.jpg",
 				"second button"));
 
 		questions.add(new MultipleChoiceQuestion("SuperNatural", "Arrow", "Criminal minds", "sn.jpg", "first button"));
 
-		questions.add(new MultipleChoiceQuestion("Sneeky Peeps", "Keep the Code", "The Office", "tbb.jpg", "third button"));
+		questions.add(
+				new MultipleChoiceQuestion("Sneeky Peeps", "Keep the Code", "The Office", "tbb.jpg", "third button"));
 
 		questions.add(new MultipleChoiceQuestion("Friends", "The Breakfast Club", "buds and gals", "club.jpg",
 				"second button"));
-		
-		questions.add(new MultipleChoiceQuestion("midgats", "triplets", "The Wizard Of Oz ", "munchkins.jpg",
+
+		questions.add(new MultipleChoiceQuestion("midJEtts", "Triplets", "The Wizard Of Oz ", "munchkins.jpg",
 				"third button"));
-		
+
+		questions.add(new MultipleChoiceQuestion("gURL-friends", "Mean Girls", "Tuesday Night ", "mean.jpg",
+				"second button"));
+
+		questions.add(new MultipleChoiceQuestion("Pirates of the Caribbean", "The OCoean Lovers", "Young & Old Men ",
+				"vibes.jpg", "first button"));
+
 		questionIterator = questions.iterator();
 		System.out.println("question  list" + questions.size());
 	}
@@ -50,6 +57,8 @@ public class QuestionArray {
 
 				return questionIterator.next();
 
+			} else {
+				System.out.println("Iterator does not have Next");
 			}
 		} catch (Exception e) {
 			return null;
@@ -70,7 +79,7 @@ public class QuestionArray {
 	}
 
 	public void reset() {
-	
+
 		questions.clear();
 	}
 
