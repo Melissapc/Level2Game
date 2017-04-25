@@ -39,13 +39,13 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	private final List<Color> colors;
 	private final Random random;
 	private Color bgColor = Color.BLUE;
-	// int (W) = WIDTH of frame
+	// (W) = WIDTH of frame
 	int W = 600;
-	// lowercase (w) is width of image being used //jpg
+	// (w) is width of image being used //jpg
 	int w = 400;
-	// int (H) is HEIGHT of the frame
+	// (H) is HEIGHT of the frame
 	int H = 600;
-	// int (h) is the height of the image being used //jpg
+	// (h) is the height of the image being used //jpg
 	int h = 258;
 
 	GamePanel(JFrame frame) throws MalformedURLException {
@@ -159,7 +159,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		String name = (e.getComponent().getName());
 		if (name != null) {
 
-			if (name.equals(question.answer)) {
+			if (question.checkAnswer(name)) {
 				removeAll();
 				getNewQuestion();
 

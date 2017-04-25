@@ -1,4 +1,7 @@
+import java.applet.AudioClip;
 import java.awt.Graphics;
+
+import javax.swing.JApplet;
 
 public class MultipleChoiceQuestion {
 	String choice1;
@@ -17,23 +20,37 @@ public class MultipleChoiceQuestion {
 	}
 
 	boolean checkAnswer(String playerAnswer) {
-		if (answer.equals(playerAnswer)) {
+	
+		if (answer.equals(playerAnswer)) {	
+			System.out.println("winner");
+			playSound("winner.wav");
+			pluspoint();
 			return true;
+		
 		}
+		playSound("loose.wav");
 		return false;
 	}
 
-public String getAnswer() {
+	private void playSound(String fileName) {
+		try {
+			AudioClip sound = JApplet.newAudioClip(getClass().getResource(fileName));
+			sound.play();
+		} catch (Exception e) {
+			System.out.println("sound not found");
+		}
+	}
+
+	public String getAnswer() {
 		return answer;
 	}
 
-public void update() {
-	
-	
-}
+	public void update() {
 
-public void draw(Graphics g) {
-	// TODO Auto-generated method stub
-	
-}
+	}
+
+	public void draw(Graphics g) {
+		// TODO Auto-generated method stub
+
+	}
 }

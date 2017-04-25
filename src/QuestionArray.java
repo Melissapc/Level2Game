@@ -23,8 +23,8 @@ public class QuestionArray {
 
 		questions.add(new MultipleChoiceQuestion("psych girl", "The Simpsons", "gurll", "lizz.png", "second button"));
 
-		questions.add(new MultipleChoiceQuestion("new Night old Drink", "Friends", "How I met your Mother", "lolii.jpg",
-				"third button"));
+		questions.add(new MultipleChoiceQuestion("new Night old Drink", "Friends",
+				"<html> How I met <br> your Mother <br> </html>", "lolii.jpg", "third button"));
 
 		questions.add(new MultipleChoiceQuestion("Live by Night", "Shark Tank", "Are You Ready", "sharkkta.jpg",
 				"second button"));
@@ -43,8 +43,8 @@ public class QuestionArray {
 		questions.add(new MultipleChoiceQuestion("gURL-friends", "Mean Girls", "Tuesday Night ", "mean.jpg",
 				"second button"));
 
-		questions.add(new MultipleChoiceQuestion("Pirates of the Caribbean", "The OCoean Lovers", "Young & Old Men ",
-				"vibes.jpg", "first button"));
+		questions.add(new MultipleChoiceQuestion("<html>Pirates <br>of the Caribbean<br> </html>", "The OCoean Lovers",
+				"Young & Old Men ", "vibes.jpg", "first button"));
 
 		questionIterator = questions.iterator();
 		System.out.println("question  list" + questions.size());
@@ -66,6 +66,20 @@ public class QuestionArray {
 		}
 		return null;
 
+	}
+
+	public int totalPoints() {
+		return questions.size();
+		
+
+	}
+
+	public void minuspoint() {
+		score--;
+	}
+
+	public void pluspoint() {
+		score++;
 	}
 
 	public int getScore() {
