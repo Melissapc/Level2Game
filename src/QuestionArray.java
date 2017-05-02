@@ -68,6 +68,7 @@ public class QuestionArray {
 		return null;
 
 	}
+
 	public int totalPoints() {
 		return questions.size();
 

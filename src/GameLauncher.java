@@ -14,10 +14,10 @@ public class GameLauncher {
 
 		try {
 			GamePanel panel = new GamePanel(start.frame);
-			
-		//	start.frame.add(panel);
+
+			// start.frame.add(panel);
 		} catch (MalformedURLException e) {
-			
+
 			e.printStackTrace();
 		}
 	}

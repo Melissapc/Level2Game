@@ -20,13 +20,13 @@ public class MultipleChoiceQuestion {
 	}
 
 	boolean checkAnswer(String playerAnswer) {
-	
-		if (answer.equals(playerAnswer)) {	
+
+		if (answer.equals(playerAnswer)) {
 			System.out.println("winner");
 			playSound("winner.wav");
-			
+
 			return true;
-		
+
 		}
 		playSound("loose.wav");
 		return false;
