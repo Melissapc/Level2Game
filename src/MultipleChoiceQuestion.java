@@ -24,7 +24,7 @@ public class MultipleChoiceQuestion {
 		if (answer.equals(playerAnswer)) {	
 			System.out.println("winner");
 			playSound("winner.wav");
-			pluspoint();
+			
 			return true;
 		
 		}

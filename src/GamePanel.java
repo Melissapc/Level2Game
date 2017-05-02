@@ -27,6 +27,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	static JLabel currentImage;
 	JFrame frame;
 	MultipleChoiceQuestion options;
+	private int score = 0;
 	JLabel text;
 	JButton answer1;
 	JButton answer2;
@@ -38,7 +39,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	MultipleChoiceQuestion question;
 	private final List<Color> colors;
 	private final Random random;
-	private Color bgColor = Color.BLUE;
+	private Color bgColor = Color.PINK;
 	// (W) = WIDTH of frame
 	int W = 600;
 	// (w) is width of image being used //jpg
@@ -160,19 +161,42 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		if (name != null) {
 
 			if (question.checkAnswer(name)) {
+				plusPoint();
 				removeAll();
 				getNewQuestion();
 
 				if (question == null) {
-					JOptionPane.showMessageDialog(null, "Game Over");
+					JOptionPane.showMessageDialog(null,
+							"Game Over! You SCORED " + getScore() + " POINTS out of " + questions.totalPoints());
+
 				} else {
 
 					panelRemake();
 					frame.validate();
 					frame.repaint();
 				}
+			} else {
+				minusPoint();
 			}
 		}
+	}
+
+	public void minusPoint() {
+		score--;
+	}
+
+	public void plusPoint() {
+		score++;
+	}
+
+	public int getScore() {
+
+		return score;
+
+	}
+
+	public void setScore(int s) {
+		score = s;
 	}
 
 	public void mouseEntered(MouseEvent e) {

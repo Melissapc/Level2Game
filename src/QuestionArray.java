@@ -10,8 +10,6 @@ public class QuestionArray {
 	// keeps track
 	Iterator<MultipleChoiceQuestion> questionIterator;
 
-	private int score = 0;
-
 	public QuestionArray() {
 		questions = new ArrayList<MultipleChoiceQuestion>();
 
@@ -45,6 +43,9 @@ public class QuestionArray {
 
 		questions.add(new MultipleChoiceQuestion("<html>Pirates <br>of the Caribbean<br> </html>", "The OCoean Lovers",
 				"Young & Old Men ", "vibes.jpg", "first button"));
+		
+		questions.add(new MultipleChoiceQuestion("California GURL", "MAny Lovers",
+				"<html>Scott Pilgrimm <br>vs. The World<br> </html>", "Ramona.jpg", "third button"));
 
 		questionIterator = questions.iterator();
 		System.out.println("question  list" + questions.size());
@@ -67,31 +68,11 @@ public class QuestionArray {
 		return null;
 
 	}
-
 	public int totalPoints() {
 		return questions.size();
-		
 
 	}
-
-	public void minuspoint() {
-		score--;
-	}
-
-	public void pluspoint() {
-		score++;
-	}
-
-	public int getScore() {
-
-		return score;
-
-	}
-
-	public void setScore(int s) {
-		score = s;
-	}
-
+	
 	public void reset() {
 
 		questions.clear();

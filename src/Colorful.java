@@ -15,11 +15,11 @@ public class Colorful extends JPanel {
 
 	private final List<Color> colors;
 	private final Random random;
-	private Color bgColor = Color.BLUE;
+	private Color bgColor = Color.PINK;
 	Timer timer;
 
 	public Colorful() {
-	
+
 		colors = createColorList();
 		random = new Random();
 
@@ -32,20 +32,17 @@ public class Colorful extends JPanel {
 				repaint();
 			}
 		});
-	timer.start();
+		timer.start();
 
 	}
 
 	private List<Color> createColorList() {
 		List<Color> list = new ArrayList<>();
-		list.add(Color.BLUE);
-		list.add(Color.CYAN);
 		list.add(Color.PINK);
+		list.add(Color.CYAN);
 		list.add(Color.ORANGE);
 		list.add(Color.MAGENTA);
 		list.add(Color.GREEN);
-		list.add(Color.YELLOW);
-		list.add(Color.RED);
 		list.add(Color.GRAY);
 		list.add(Color.WHITE);
 		return list;
