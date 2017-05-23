@@ -22,12 +22,20 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	static JLabel currentImage;
 	JFrame frame;
 	MultipleChoiceQuestion options;
+	
+	
+	
 	private int score = 0;
+	JLabel scoreLabel = new JLabel("Score: 0");
+	
+	
+	
 	JLabel text;
 	JButton answer1;
 	JButton answer2;
@@ -39,7 +47,9 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	MultipleChoiceQuestion question;
 	private final List<Color> colors;
 	private final Random random;
-	private Color bgColor = Color.PINK;
+	private Color bgColor;
+	Timer timer;
+
 	// (W) = WIDTH of frame
 	int W = 600;
 	// (w) is width of image being used //jpg
@@ -52,7 +62,6 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	GamePanel(JFrame frame) throws MalformedURLException {
 
 		this.frame = frame;
-		// frame.add(this);
 		colors = createColorList();
 		random = new Random();
 		questions = new QuestionArray();
@@ -62,6 +71,16 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		} else {
 			panelRemake();
 		}
+		timer = new Timer(1000, new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int index = random.nextInt(colors.size());
+				bgColor = colors.get(index);
+
+				repaint();
+			}
+
+		});
+		timer.start();
 
 	}
 
@@ -92,7 +111,8 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		setLayout(null);
 		setVisible(true);
 		frame.add(this);
-
+		setScore(H);
+		add(scoreLabel);
 		if (question == null) {
 
 		} else {
@@ -162,6 +182,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 
 			if (question.checkAnswer(name)) {
 				plusPoint();
+			
 				removeAll();
 				getNewQuestion();
 
@@ -182,21 +203,22 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	}
 
 	public void minusPoint() {
-		score--;
+		setScore(score--);
 	}
 
 	public void plusPoint() {
-		score++;
+		setScore(score++);
+		
 	}
 
 	public int getScore() {
 
 		return score;
-
 	}
-
 	public void setScore(int s) {
-		score = s;
+		score = s;	
+		scoreLabel.setText("Score " + score);
+		scoreLabel.setBounds(50, 50, 20, 30);
 	}
 
 	public void mouseEntered(MouseEvent e) {
