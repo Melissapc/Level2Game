@@ -28,9 +28,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	static JLabel currentImage;
 	JFrame frame;
 	MultipleChoiceQuestion options;
-	
-	
-	
+
 	private int score = 0;
 	JLabel scoreLabel = new JLabel("Score: 0");
 	
@@ -41,7 +39,6 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	JButton answer2;
 	JButton answer3;
 	int buttonY = 520;
-	JLabel imagelabel;
 	String hoverButton = "";
 	QuestionArray questions;
 	MultipleChoiceQuestion question;
@@ -95,7 +92,6 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		list.add(Color.YELLOW);
 		list.add(Color.RED);
 		list.add(Color.GRAY);
-		list.add(Color.WHITE);
 		return list;
 	}
 
@@ -111,17 +107,10 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		setLayout(null);
 		setVisible(true);
 		frame.add(this);
-		setScore(H);
-		add(scoreLabel);
-		if (question == null) {
 
 		} else {
 			String image = question.image;
-			imagelabel = createImage(image);
 			System.out.println(image);
-			if (imagelabel != null) {
-				imagelabel.setBounds(((W - w) / 2), (H - h) / 3, 400, 258);
-				add(imagelabel);
 				System.out.println("image label");
 			}
 
@@ -158,7 +147,6 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		answer1.setText(question.choice1);
 		answer2.setText(question.choice2);
 		answer3.setText(question.choice3);
-
 		setVisible(true);
 
 	}
@@ -182,13 +170,11 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 
 			if (question.checkAnswer(name)) {
 				plusPoint();
-			
 				removeAll();
 				getNewQuestion();
 
 				if (question == null) {
 					JOptionPane.showMessageDialog(null,
-							"Game Over! You SCORED " + getScore() + " POINTS out of " + questions.totalPoints());
 
 				} else {
 
@@ -203,22 +189,18 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	}
 
 	public void minusPoint() {
-		setScore(score--);
 	}
 
 	public void plusPoint() {
-		setScore(score++);
-		
 	}
 
 	public int getScore() {
 
 		return score;
 	}
+
 	public void setScore(int s) {
-		score = s;	
 		scoreLabel.setText("Score " + score);
-		scoreLabel.setBounds(50, 50, 20, 30);
 	}
 
 	public void mouseEntered(MouseEvent e) {
@@ -226,15 +208,11 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		hoverButton = e.getComponent().getName();
 		System.out.println(hoverButton);
 
-		int buttonWidth = imagelabel.getWidth() / 3;
 		if (e.getSource() == answer1) {
-			answer1.setBounds(imagelabel.getX(), buttonY - 100, buttonWidth, 150);
 		}
 		if (e.getSource() == answer2) {
-			answer2.setBounds(imagelabel.getX() + buttonWidth, buttonY - 100, buttonWidth, 150);
 		}
 		if (e.getSource() == answer3) {
-			answer3.setBounds(imagelabel.getX() + (buttonWidth * 2), buttonY - 100, buttonWidth, 150);
 		}
 	}
 
