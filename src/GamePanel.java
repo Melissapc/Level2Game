@@ -31,9 +31,10 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	MultipleChoiceQuestion options;
 	
 	Font scorefont;
+	Font melissafont;
 	private int score = 0;
 	JLabel scoreLabel = new JLabel("Score: 0");
-
+JLabel gameOwner=new JLabel("@melissacreates");
 	JLabel text;
 	JLabel imageLabel = new JLabel();
 	JButton answer1;
@@ -61,6 +62,8 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	GamePanel(JFrame frame) throws MalformedURLException {
 
 		this.frame = frame;
+		scorefont=new Font("Arial",Font.BOLD,45);
+		melissafont=new Font("Arial", Font.BOLD,20);
 		colors = createColorList();
 		random = new Random();
 		questions = new QuestionArray();
@@ -80,7 +83,10 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 
 		});
 		timer.start();
-		scoreLabel.setBounds(50, 50, 200, 50);
+		scoreLabel.setBounds(GameLauncher.W/2, 50, 200, 50);
+		gameOwner.setBounds(50, 50, 200, 50);
+		
+		
 	}
 
 	private List<Color> createColorList() {
@@ -99,6 +105,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		
 		g.setColor(bgColor);
 		g.fillRect(0, 0, getWidth(), getHeight());
 	}
@@ -108,7 +115,10 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		// panel = new Colorful();
 		setLayout(null);
 		frame.add(this);
+		scoreLabel.setFont(scorefont);
 		add(scoreLabel);
+		gameOwner.setFont(melissafont);
+		add(gameOwner);
 		String image = question.image;
 		imageLabel = createImage(image);
 		add(imageLabel);
@@ -157,8 +167,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 
 			w = icon.getIconWidth();
 			h = icon.getIconHeight();
-			System.out.println("icon w " + w);
-			System.out.println("icon h " + h);
+			
 
 			if (imageLabel != null) {
 				imageLabel.setBounds(((GameLauncher.W - w) / 2), (GameLauncher.H - h) / 3, w, h);
@@ -213,7 +222,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	}
 
 	public void setScore(int s) {
-		// score = s;
+		
 		scoreLabel.setText("Score " + score);
 
 	}

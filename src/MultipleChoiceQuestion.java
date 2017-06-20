@@ -35,6 +35,7 @@ public class MultipleChoiceQuestion {
 	private void playSound(String fileName) {
 		try {
 			AudioClip sound = JApplet.newAudioClip(getClass().getResource(fileName));
+			
 			sound.play();
 		} catch (Exception e) {
 			System.out.println("sound not found");

@@ -43,7 +43,7 @@ public class QuestionArray {
 		questions.add(new MultipleChoiceQuestion("<html>Pirates <br>of the Caribbean<br> </html>", " OCoean Lovers",
 				"By the Sea", "vibes.jpg", "first button"));
 		
-		questions.add(new MultipleChoiceQuestion("California GURL", "",
+		questions.add(new MultipleChoiceQuestion("California GURL", "Rad girl",
 				"<html>Scott Pilgrimm <br>vs. The World<br> </html>", "Ramona.jpg", "third button"));
 
 		questionIterator = questions.iterator();
