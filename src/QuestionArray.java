@@ -1,7 +1,5 @@
-import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Random;
 
 public class QuestionArray {
 
@@ -13,7 +11,7 @@ public class QuestionArray {
 	public QuestionArray() {
 		questions = new ArrayList<MultipleChoiceQuestion>();
 
-		questions.add(new MultipleChoiceQuestion("Crazy Man","Lost Man","<html> Fantastic beasts <br> and  where to <br> find them</html>", "AAHHA.jpg", "third button"));
+		questions.add(new MultipleChoiceQuestion("Crazy Man", "Lost Man", "<html> Fantastic beasts <br> and  where to <br> find them</html>", "AAHHA.jpg", "third button"));
 
 		questions.add(new MultipleChoiceQuestion("kids Best Friend", "A Dog's Purpose", "A Puppy Role",
 				"pupper.jpg", "second button"));
@@ -31,7 +29,7 @@ public class QuestionArray {
 		questions.add(
 				new MultipleChoiceQuestion("Sneaky buds", "Keep the Code", "The Office", "tbb.jpg", "third button"));
 
-		questions.add(new MultipleChoiceQuestion("Friends", "The Breakfast Club", "Teen daze", "club.jpg",
+		questions.add(new MultipleChoiceQuestion("Friends", "<html>The <br> Breakfast <br> Club </html>", "Teen daze", "club.jpg",
 				"second button"));
 
 		questions.add(new MultipleChoiceQuestion("Buddies", "Triplets", "<html>The <br> Wizard <br> Of Oz </html> ", "munchkins.jpg",
@@ -42,9 +40,33 @@ public class QuestionArray {
 
 		questions.add(new MultipleChoiceQuestion("<html>Pirates <br>of the Caribbean<br> </html>", " OCoean Lovers",
 				"By the Sea", "vibes.jpg", "first button"));
-		
+
 		questions.add(new MultipleChoiceQuestion("California GURL", "Rad girl",
 				"<html>Scott Pilgrimm <br>vs. The World<br> </html>", "Ramona.jpg", "third button"));
+
+		questions.add(new MultipleChoiceQuestion("Weird kids", "When you're strange", "ET ", "ET.jpg",
+				"third button"));
+
+		questions.add(new MultipleChoiceQuestion("Hairy Man", "Starwars", "Don't b rude", "Chewbacca.jpg",
+				"second button"));
+
+		questions.add(new MultipleChoiceQuestion("Frozen", "Titanic", "Lost at Sea", "TITANIC.jpg",
+				"second button"));
+
+		questions.add(new MultipleChoiceQuestion("Ocean Creatures", "Coral Reefs", "Finding Nemo", "NEMO.jpg",
+				"third button"));
+
+		questions.add(new MultipleChoiceQuestion("StepBrothers", "Big babies", "Playdate gone Wrong", "step.jpg",
+				"first button"));
+
+		questions.add(new MultipleChoiceQuestion("Fallen but Risen", "None Left Behind", "Forrest Gump", "FOREST.jpg",
+				"third button"));
+
+		questions.add(new MultipleChoiceQuestion("Prom Night", "Twilight", "FOREVERS", "TWILIGHT.jpg",
+				"second button"));
+
+		questions.add(new MultipleChoiceQuestion("Secrets", "Kayip Girl", "Toy Story", "TOYSTORY.png",
+				"third button"));
 
 		questionIterator = questions.iterator();
 		System.out.println("question  list" + questions.size());
@@ -72,7 +94,7 @@ public class QuestionArray {
 		return questions.size();
 
 	}
-	
+
 	public void reset() {
 
 		questions.clear();

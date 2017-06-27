@@ -1,21 +1,16 @@
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -29,12 +24,12 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	static JLabel currentImage;
 	JFrame frame;
 	MultipleChoiceQuestion options;
-	
+
 	Font scorefont;
 	Font melissafont;
 	private int score = 0;
 	JLabel scoreLabel = new JLabel("Score: 0");
-JLabel gameOwner=new JLabel("@melissacreates");
+	JLabel gameOwner = new JLabel("MelissaCreates");
 	JLabel text;
 	JLabel imageLabel = new JLabel();
 	JButton answer1;
@@ -54,22 +49,22 @@ JLabel gameOwner=new JLabel("@melissacreates");
 	Timer timer;
 
 	// (w) is width of image being used //jpg
-	int w;
+	int imageWidth;
 
 	// (h) is the height of the image being used //jpg
-	int h;
+	int imageHeight;
 
 	GamePanel(JFrame frame) throws MalformedURLException {
 
 		this.frame = frame;
-		scorefont=new Font("Arial",Font.BOLD,45);
-		melissafont=new Font("Arial", Font.BOLD,20);
+		scorefont = new Font("Arial", Font.BOLD, 45);
+		melissafont = new Font("Arial", Font.BOLD, 20);
 		colors = createColorList();
 		random = new Random();
 		questions = new QuestionArray();
 		getNewQuestion();
 		if (question == null) {
-			JOptionPane.showMessageDialog(null, "game over");
+			JOptionPane.showMessageDialog(null, "GAME OVER");
 		} else {
 			panelRemake();
 		}
@@ -83,10 +78,9 @@ JLabel gameOwner=new JLabel("@melissacreates");
 
 		});
 		timer.start();
-		scoreLabel.setBounds(GameLauncher.W/2, 50, 200, 50);
+		scoreLabel.setBounds(GameLauncher.W / 2, 50, 200, 50);
 		gameOwner.setBounds(50, 50, 200, 50);
-		
-		
+
 	}
 
 	private List<Color> createColorList() {
@@ -105,7 +99,7 @@ JLabel gameOwner=new JLabel("@melissacreates");
 
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		
+
 		g.setColor(bgColor);
 		g.fillRect(0, 0, getWidth(), getHeight());
 	}
@@ -121,6 +115,7 @@ JLabel gameOwner=new JLabel("@melissacreates");
 		add(gameOwner);
 		String image = question.image;
 		imageLabel = createImage(image);
+
 		add(imageLabel);
 		setVisible(true);
 
@@ -165,12 +160,17 @@ JLabel gameOwner=new JLabel("@melissacreates");
 			Icon icon = new ImageIcon(imageURL);
 			JLabel imageLabel = new JLabel(icon);
 
-			w = icon.getIconWidth();
-			h = icon.getIconHeight();
-			
+			imageWidth = icon.getIconWidth();
+			imageHeight = icon.getIconHeight();
+
+			/*
+			 * if (imageHeight > frame.getHeight() / 3) { imageHeight = frame.getHeight() / 3;
+			 * 
+			 * }
+			 */
 
 			if (imageLabel != null) {
-				imageLabel.setBounds(((GameLauncher.W - w) / 2), (GameLauncher.H - h) / 3, w, h);
+				imageLabel.setBounds(((GameLauncher.W - imageWidth) / 2), (GameLauncher.H - imageHeight) / 3, imageWidth, imageHeight);
 				return imageLabel;
 			}
 		} catch (Exception e) {
@@ -222,7 +222,7 @@ JLabel gameOwner=new JLabel("@melissacreates");
 	}
 
 	public void setScore(int s) {
-		
+
 		scoreLabel.setText("Score " + score);
 
 	}
