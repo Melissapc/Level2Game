@@ -10,6 +10,9 @@ public class QuestionArray {
 
 	public QuestionArray() {
 		questions = new ArrayList<MultipleChoiceQuestion>();
+		
+		
+		questions.add(new MultipleChoiceQuestion("Hush", "Keep Quiet", "Another One", "hush.png", "first button"));
 
 		questions.add(new MultipleChoiceQuestion("New York sights", "Lost Man",
 				"<html> Fantastic beasts <br> and  where to <br> find them</html>", "AAHHA.jpg", "third button"));
@@ -29,9 +32,9 @@ public class QuestionArray {
 		questions.add(new MultipleChoiceQuestion("SuperNatural", "Arrow", "Criminal Minds", "sn.jpg", "first button"));
 
 		questions.add(
-				new MultipleChoiceQuestion("Sneaky buds", "Keep the Code", "The Office", "tbb.jpg", "third button"));
+				new MultipleChoiceQuestion("Buds", "Office Code", "The Office", "tbb.jpg", "third button"));
 
-		questions.add(new MultipleChoiceQuestion("Friends", "<html>The <br> Breakfast <br> Club </html>", "Teen daze",
+		questions.add(new MultipleChoiceQuestion("Friends", "<html>The <br> Breakfast <br> Club </html>", "forever young",
 				"club.jpg", "second button"));
 
 		questions.add(new MultipleChoiceQuestion("Buddies", "Triplets", "<html>The <br> Wizard <br> Of Oz </html> ",
@@ -68,21 +71,34 @@ public class QuestionArray {
 		questions.add(new MultipleChoiceQuestion("Secrets", "Kayip Girl", "Toy Story", "TOYSTORY.png", "third button"));
 
 		questions.add(
-				new MultipleChoiceQuestion("Brujeria", "Harry potter", "Fria Noche", "harryp.jpg", "second button"));
+				new MultipleChoiceQuestion("voodo child", "Harry potter", "Fria Noche", "harryp.jpg", "second button"));
 
 		questions.add(new MultipleChoiceQuestion("Creeper", "<html> <br> Worst NightMare<br> </html>", "Halloween",
 				"halloween.png", "third button"));
 
-		questions.add(new MultipleChoiceQuestion("Hush", "Keep Quiet", "Another One", "hush.jpg", "first button"));
+  
 
-		questions.add(new MultipleChoiceQuestion("Giant Shrooms", "Trips", "Alive in wonderland", "alice.jpg",
+		questions.add(new MultipleChoiceQuestion("Giant  mushh Shrooms", "Trips", "Alive in wonderland", "alice.jpg",
 				"third button"));
 
-		questions.add(new MultipleChoiceQuestion("NasCarr", "That's a nice Car", "Cars", "cars.gif", "third button"));
+		questions.add(new MultipleChoiceQuestion("NasCar", "That's a nice Car", "Cars", "cars.gif", "third button"));
 
-		questions.add(new MultipleChoiceQuestion("Unimpressed Forever", "Despicable me", "Old Folks", "des.jpg",
+		questions.add(new MultipleChoiceQuestion("Unimpressed Frever", "Despicable Me", "Oldie but goodie", "des.jpg",
 				"second button"));
 
+		questions.add(new MultipleChoiceQuestion("Inception", "lucid dreams", "subliminal times", "Inception.jpg",
+				"first button"));
+
+		questions.add(new MultipleChoiceQuestion("Only the coolest", "forever happy", "Valentino's Dad", "music.jpg",
+				"third button"));
+
+		questions.add(new MultipleChoiceQuestion("Iron Man", "Spiderman", "Pepper's Fwiend", "spiderman.jpg",
+				"second button"));
+
+		questions.add(new MultipleChoiceQuestion("Twilight", "1,000,000 lovers", "Decisions", "TWILIGHT.jpg",
+				"first button"));
+
+		
 		questionIterator = questions.iterator();
 		System.out.println("question  list" + questions.size());
 	}
