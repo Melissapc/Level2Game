@@ -66,7 +66,7 @@ public class QuestionArray {
 				"third button"));
 
 		questions
-				.add(new MultipleChoiceQuestion("Prom Night", "Twilight", "FOREVERS", "TWILIGHT.jpg", "second button"));
+				.add(new MultipleChoiceQuestion("1,000,000 lovers", "Twilight", "4evers", "TWILIGHT.jpg", "second button"));
 
 		questions.add(new MultipleChoiceQuestion("Secrets", "Kayip Girl", "Toy Story", "TOYSTORY.png", "third button"));
 
@@ -95,8 +95,7 @@ public class QuestionArray {
 		questions.add(new MultipleChoiceQuestion("Iron Man", "Spiderman", "Pepper's Fwiend", "spiderman.jpg",
 				"second button"));
 
-		questions.add(new MultipleChoiceQuestion("Twilight", "1,000,000 lovers", "Decisions", "TWILIGHT.jpg",
-				"first button"));
+		
 
 		
 		questionIterator = questions.iterator();

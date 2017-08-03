@@ -8,6 +8,9 @@ public class GameLauncher {
 
 	JFrame frame = new JFrame();
 
+	
+	
+	
 	public static void main(String[] args) {
 		GameLauncher start = new GameLauncher();
 		start.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
