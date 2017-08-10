@@ -92,7 +92,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		list.add(Color.MAGENTA);
 		list.add(Color.GREEN);
 		list.add(Color.YELLOW);
-		list.add(Color.RED);
+		// list.add(Color.RED);
 		list.add(Color.GRAY);
 		return list;
 	}
@@ -164,13 +164,15 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 			imageHeight = icon.getIconHeight();
 
 			/*
-			 * if (imageHeight > frame.getHeight() / 3) { imageHeight = frame.getHeight() / 3;
+			 * if (imageHeight > frame.getHeight() / 3) { imageHeight =
+			 * frame.getHeight() / 3;
 			 * 
 			 * }
 			 */
 
 			if (imageLabel != null) {
-				imageLabel.setBounds(((GameLauncher.W - imageWidth) / 2), (GameLauncher.H - imageHeight) / 3, imageWidth, imageHeight);
+				imageLabel.setBounds(((GameLauncher.W - imageWidth) / 2), (GameLauncher.H - imageHeight) / 3,
+						imageWidth, imageHeight);
 				return imageLabel;
 			}
 		} catch (Exception e) {
@@ -181,6 +183,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 
 	public void mouseClicked(MouseEvent e) {
 		String name = (e.getComponent().getName());
+		System.out.println("xxx" + name);
 		if (name != null) {
 
 			if (question.checkAnswer(name)) {
@@ -199,8 +202,15 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 					frame.repaint();
 				}
 			} else {
-				minusPoint();
+				if (name.equals("first button")) {
+					answer1.setText("WRONG");
 
+				} else if (name.equals("second button")) {
+					answer2.setText("WRONG");
+				} else if (name.equals("third button")) {
+					answer3.setText("WRONG");
+				}
+				minusPoint();
 				frame.repaint();
 
 			}
@@ -257,7 +267,40 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("game panel action");
+//		System.out.println("game panel action");
+//		String name = ((JButton) (e.getSource())).getText();
+//		//System.out.println("xxx" + name);
+//		if (name != null) {
+//
+//			if (question.checkAnswer(name)) {
+//				plusPoint();
+//				removeAll();
+//				getNewQuestion();
+//
+//				if (question == null) {
+//					JOptionPane.showMessageDialog(null,
+//							"Game Over! You SCORED " + getScore() + " POINTS out of " + questions.totalPoints());
+//					System.exit(0);
+//				} else {
+//
+//					panelRemake();
+//					frame.validate();
+//					frame.repaint();
+//				}
+//			} else {
+//				if (name.equals("first button")) {
+//					answer1.setText("WRONG");
+//
+//				} else if (name.equals("second button")) {
+//					answer2.setText("WRONG");
+//				} else if (name.equals("third button")) {
+//					answer3.setText("WRONG");
+//				}
+//				minusPoint();
+//				frame.repaint();
+//
+//			}
+//		}
 	}
 
 	@Override

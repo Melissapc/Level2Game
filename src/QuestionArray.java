@@ -15,7 +15,7 @@ public class QuestionArray {
 		questions.add(new MultipleChoiceQuestion("Hush", "Keep Quiet", "Another One", "hush.png", "first button"));
 
 		questions.add(new MultipleChoiceQuestion("New York sights", "Lost Man",
-				"<html> Fantastic beasts <br> and  where to <br> find them</html>", "AAHHA.jpg", "third button"));
+				"<html> Fantastic beasts <br> & where to <br> find them</html>", "AAHHA.jpg", "third button"));
 
 		questions.add(new MultipleChoiceQuestion("kids Best Friend", "A Dog's Purpose", "A Puppy Role", "pupper.jpg",
 				"second button"));
@@ -43,10 +43,10 @@ public class QuestionArray {
 		questions.add(new MultipleChoiceQuestion("Gurl-Friends", "Mean Girls",
 				"<html> <br>Wednesday<br> Night </html> ", "mean.jpg", "second button"));
 
-		questions.add(new MultipleChoiceQuestion("<html>Pirates <br>of the Caribbean<br> </html>", " OCoean Lovers",
+		questions.add(new MultipleChoiceQuestion("<html>Pirates <br>of the Caribbean<br> </html>", " Ocean enthusiasts",
 				"By the Sea", "vibes.jpg", "first button"));
 
-		questions.add(new MultipleChoiceQuestion("California GURL", "Rad girl",
+		questions.add(new MultipleChoiceQuestion("California Girl", "the coolest chick",
 				"<html>Scott Pilgrimm <br>vs. The World<br> </html>", "Ramona.jpg", "third button"));
 
 		questions.add(new MultipleChoiceQuestion("Weird kids", "When you're strange", "ET ", "ET.jpg", "third button"));
@@ -62,23 +62,25 @@ public class QuestionArray {
 		questions.add(new MultipleChoiceQuestion("StepBrothers", "Big babies", "Playdate gone Wrong", "step.jpg",
 				"first button"));
 
-		questions.add(new MultipleChoiceQuestion("Fallen but Risen", "None Left Behind", "Forrest Gump", "FOREST.jpg",
+		questions.add(new MultipleChoiceQuestion("Lost", "Brothers", "Forrest Gump", "FOREST.jpg",
 				"third button"));
 
 		questions
 				.add(new MultipleChoiceQuestion("1,000,000 lovers", "Twilight", "4evers", "TWILIGHT.jpg", "second button"));
 
-		questions.add(new MultipleChoiceQuestion("Secrets", "Kayip Girl", "Toy Story", "TOYSTORY.png", "third button"));
+		questions.add(new MultipleChoiceQuestion("Secrets", "Kayip", "Toy Story", "TOYSTORY.png", "third button"));
 
 		questions.add(
-				new MultipleChoiceQuestion("voodo child", "Harry potter", "Fria Noche", "harryp.jpg", "second button"));
+				new MultipleChoiceQuestion("Evil grandpa", "Harry potter", "Fria Noche", "harryp.jpg", "second button"));
 
-		questions.add(new MultipleChoiceQuestion("Creeper", "<html> <br> Worst NightMare<br> </html>", "Halloween",
+		questions.add(new MultipleChoiceQuestion("Creeper", "<html> <br> Worst Nightmare<br> </html>", "Halloween",
 				"halloween.png", "third button"));
 
-  
+		questions.add(new MultipleChoiceQuestion("forever buds", "That 70's Show", "talking in a circle", "cunnies.jpg",
+				"second button"));
 
-		questions.add(new MultipleChoiceQuestion("Giant  mushh Shrooms", "Trips", "Alive in wonderland", "alice.jpg",
+
+		questions.add(new MultipleChoiceQuestion("Giant mush shrooms", "Dreamy Girls", "Alice in Wonderland", "alice.jpg",
 				"third button"));
 
 		questions.add(new MultipleChoiceQuestion("NasCar", "That's a nice Car", "Cars", "cars.gif", "third button"));
@@ -86,13 +88,13 @@ public class QuestionArray {
 		questions.add(new MultipleChoiceQuestion("Unimpressed Frever", "Despicable Me", "Oldie but goodie", "des.jpg",
 				"second button"));
 
-		questions.add(new MultipleChoiceQuestion("Inception", "lucid dreams", "subliminal times", "Inception.jpg",
+		questions.add(new MultipleChoiceQuestion("Inception", "lucid dreams", "subliminal", "Inception.jpg",
 				"first button"));
 
-		questions.add(new MultipleChoiceQuestion("Only the coolest", "forever happy", "Valentino's Dad", "music.jpg",
+		questions.add(new MultipleChoiceQuestion("Rad Dads", "forever happy", "Valentino's Dad", "music.jpg",
 				"third button"));
 
-		questions.add(new MultipleChoiceQuestion("Iron Man", "Spiderman", "Pepper's Fwiend", "spiderman.jpg",
+		questions.add(new MultipleChoiceQuestion("Iron Man", "Spiderman", "Stalker/Creep", "spiderman.jpg",
 				"second button"));
 
 		

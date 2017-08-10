@@ -14,9 +14,10 @@ public class GameLauncher {
 	public static void main(String[] args) {
 		GameLauncher start = new GameLauncher();
 		start.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		start.frame.setTitle("Screenerrrs");
+		start.frame.setTitle("Options");
 		start.frame.setSize(W, H);
 		start.frame.setVisible(true);
+		
 
 		try {
 			GamePanel panel = new GamePanel(start.frame);
