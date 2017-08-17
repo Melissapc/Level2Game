@@ -14,7 +14,7 @@ public class GameLauncher {
 	public static void main(String[] args) {
 		GameLauncher start = new GameLauncher();
 		start.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		start.frame.setTitle("Options");
+		start.frame.setTitle("button up");
 		start.frame.setSize(W, H);
 		start.frame.setVisible(true);
 		

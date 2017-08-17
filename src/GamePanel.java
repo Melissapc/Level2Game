@@ -29,7 +29,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	Font melissafont;
 	private int score = 0;
 	JLabel scoreLabel = new JLabel("Score: 0");
-	JLabel gameOwner = new JLabel("MelissaCreates");
+	JLabel gameOwner = new JLabel(" by MelissaCreates");
 	JLabel text;
 	JLabel imageLabel = new JLabel();
 	JButton answer1;
@@ -92,7 +92,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 		list.add(Color.MAGENTA);
 		list.add(Color.GREEN);
 		list.add(Color.YELLOW);
-		// list.add(Color.RED);
+		list.add(Color.RED);
 		list.add(Color.GRAY);
 		return list;
 	}
@@ -163,13 +163,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 			imageWidth = icon.getIconWidth();
 			imageHeight = icon.getIconHeight();
 
-			/*
-			 * if (imageHeight > frame.getHeight() / 3) { imageHeight =
-			 * frame.getHeight() / 3;
-			 * 
-			 * }
-			 */
-
+		
 			if (imageLabel != null) {
 				imageLabel.setBounds(((GameLauncher.W - imageWidth) / 2), (GameLauncher.H - imageHeight) / 3,
 						imageWidth, imageHeight);
@@ -182,11 +176,66 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 	}
 
 	public void mouseClicked(MouseEvent e) {
-		String name = (e.getComponent().getName());
-		System.out.println("xxx" + name);
-		if (name != null) {
+			}
 
+	public void minusPoint() {
+		setScore(score--);
+	}
+
+	public void plusPoint() {
+		setScore(score++);
+
+	}
+
+	public int getScore() {
+
+		return score;
+	}
+
+	public void setScore(int s) {
+
+		scoreLabel.setText("Score " + score);
+
+	}
+
+	public void mouseEntered(MouseEvent e) {
+
+		hoverButton = e.getComponent().getName();
+		// System.out.println(hoverButton);
+		int buttonWidth = imageLabel.getWidth() / 3;
+		if (e.getSource() == answer1) {
+			answer1.setBounds(imageLabel.getX(), buttonY - buttonHeight, buttonWidth, 150);
+
+		}
+		if (e.getSource() == answer2) {
+			answer2.setBounds(imageLabel.getX() + buttonWidth, buttonY - buttonHeight, buttonWidth, 150);
+
+		}
+		if (e.getSource() == answer3) {
+			answer3.setBounds(imageLabel.getX() + (buttonWidth * 2), buttonY - buttonHeight, buttonWidth, 150);
+		}
+	}
+
+	public void mouseExited(MouseEvent e) {
+
+		hoverButton = "";
+
+	}
+
+	void getNewQuestion() {
+		question = questions.getNewQuestion();
+
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		//System.out.println("game panel action");
+		String name = ((JButton) (e.getSource())).getName();
+	//	System.out.println("xxx" + name);
+		if (name != null) {
+			
+			//System.out.println(question.answer);
 			if (question.checkAnswer(name)) {
+
 				plusPoint();
 				removeAll();
 				getNewQuestion();
@@ -215,92 +264,6 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener {
 
 			}
 		}
-	}
-
-	public void minusPoint() {
-		setScore(score--);
-	}
-
-	public void plusPoint() {
-		setScore(score++);
-
-	}
-
-	public int getScore() {
-
-		return score;
-	}
-
-	public void setScore(int s) {
-
-		scoreLabel.setText("Score " + score);
-
-	}
-
-	public void mouseEntered(MouseEvent e) {
-
-		hoverButton = e.getComponent().getName();
-		System.out.println(hoverButton);
-		int buttonWidth = imageLabel.getWidth() / 3;
-		if (e.getSource() == answer1) {
-			answer1.setBounds(imageLabel.getX(), buttonY - buttonHeight, buttonWidth, 150);
-
-		}
-		if (e.getSource() == answer2) {
-			answer2.setBounds(imageLabel.getX() + buttonWidth, buttonY - buttonHeight, buttonWidth, 150);
-
-		}
-		if (e.getSource() == answer3) {
-			answer3.setBounds(imageLabel.getX() + (buttonWidth * 2), buttonY - buttonHeight, buttonWidth, 150);
-		}
-	}
-
-	public void mouseExited(MouseEvent e) {
-
-		hoverButton = "";
-
-	}
-
-	void getNewQuestion() {
-		question = questions.getNewQuestion();
-
-	}
-
-	public void actionPerformed(ActionEvent e) {
-//		System.out.println("game panel action");
-//		String name = ((JButton) (e.getSource())).getText();
-//		//System.out.println("xxx" + name);
-//		if (name != null) {
-//
-//			if (question.checkAnswer(name)) {
-//				plusPoint();
-//				removeAll();
-//				getNewQuestion();
-//
-//				if (question == null) {
-//					JOptionPane.showMessageDialog(null,
-//							"Game Over! You SCORED " + getScore() + " POINTS out of " + questions.totalPoints());
-//					System.exit(0);
-//				} else {
-//
-//					panelRemake();
-//					frame.validate();
-//					frame.repaint();
-//				}
-//			} else {
-//				if (name.equals("first button")) {
-//					answer1.setText("WRONG");
-//
-//				} else if (name.equals("second button")) {
-//					answer2.setText("WRONG");
-//				} else if (name.equals("third button")) {
-//					answer3.setText("WRONG");
-//				}
-//				minusPoint();
-//				frame.repaint();
-//
-//			}
-//		}
 	}
 
 	@Override

@@ -22,7 +22,7 @@ public class MultipleChoiceQuestion {
 	boolean checkAnswer(String playerAnswer) {
 
 		if (answer.equals(playerAnswer)) {
-			System.out.println("winner");
+		//	System.out.println("winner");
 			playSound("winner.wav");
 
 			return true;
@@ -38,7 +38,7 @@ public class MultipleChoiceQuestion {
 			
 			sound.play();
 		} catch (Exception e) {
-			System.out.println("sound not found");
+		//	System.out.println("sound not found");
 		}
 	}
 

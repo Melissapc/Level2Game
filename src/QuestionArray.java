@@ -101,18 +101,18 @@ public class QuestionArray {
 
 		
 		questionIterator = questions.iterator();
-		System.out.println("question  list" + questions.size());
+	//	System.out.println("question  list" + questions.size());
 	}
 
 	public MultipleChoiceQuestion getNewQuestion() {
 		try {
 			if (questionIterator.hasNext()) {
-				System.out.println("hasNext");
+			//	System.out.println("hasNext");
 
 				return questionIterator.next();
 
 			} else {
-				System.out.println("Iterator does not have Next");
+				//System.out.println("Iterator does not have Next");
 			}
 		} catch (Exception e) {
 			return null;
